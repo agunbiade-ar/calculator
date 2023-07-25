@@ -1,0 +1,52 @@
+* {
+  box-sizing: border-box;
+  color: white;
+  font-family: 'Dosis', sans-serif;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main {
+  width: 480px;
+  background-color: #1e3d59;
+  height: 500px;
+  box-shadow: rgba(209, 67, 67, 0.35) 0px 5px 15px;
+  border-radius: 15px;
+}
+
+#screen-section {
+  height: 130px;
+  border-bottom: 2px solid white;
+  font-size: 1.5rem;
+  text-align: right;
+  padding: 10px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 4.5rem;
+}
+
+.buttons div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f5f0e1;
+  border-radius: 10px;
+  width: 3rem;
+  height: 3rem;
+  margin-top: 0.5rem;
+}
+
+strong {
+  color: #1e3d59;
+  font-size: 1.5rem;
+}
