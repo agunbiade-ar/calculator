@@ -38,6 +38,14 @@ function evaluate() {
   result = '';
 }
 
+function reset() {
+  number1 = '';
+  number2 = '';
+  operator = '';
+  result = '';
+  (input.textContent = '0'), (output.textContent = '0');
+}
+
 dot.addEventListener('click', function () {
   console.log('.');
 });
@@ -193,11 +201,13 @@ equal.addEventListener('click', function () {
   evaluate();
 });
 
+cls.addEventListener('click', reset);
+
 document.addEventListener('keyup', function (e) {
+  if (!isFinite(number1) || isNaN(number1)) reset();
   switch (e.key) {
     case 'Enter':
       evaluate();
-      console.log(number1, operator, number2, result);
       break;
 
     case '-':
@@ -234,6 +244,14 @@ document.addEventListener('keyup', function (e) {
         operator = 'divide';
       }
       console.log(number1, operator, number2, result);
+      break;
+
+    case 'c':
+      reset();
+      break;
+
+    case 'C':
+      reset();
       break;
 
     default:
