@@ -198,6 +198,10 @@ function useKeys(keycode, resetFunction) {
         operator = '';
       } else if (operator == 'minus') {
         input.textContent = input.textContent;
+      } else if (operator) {
+        operator = 'minus';
+        input.textContent =
+          input.textContent.slice(0, input.textContent.length - 1) + '-';
       } else {
         operator = 'minus';
         input.textContent += '-';
@@ -221,6 +225,10 @@ function useKeys(keycode, resetFunction) {
         resetFunction();
       } else if (operator == 'plus') {
         input.textContent = input.textContent;
+      } else if (operator) {
+        operator = 'plus';
+        input.textContent =
+          input.textContent.slice(0, input.textContent.length - 1) + '+';
       } else {
         operator = 'plus';
         input.textContent += '+';
@@ -244,6 +252,10 @@ function useKeys(keycode, resetFunction) {
         resetFunction();
       } else if (operator == 'multiply') {
         input.textContent = input.textContent;
+      } else if (operator) {
+        operator = 'multiply';
+        input.textContent =
+          input.textContent.slice(0, input.textContent.length - 1) + '*';
       } else {
         operator = 'multiply';
         input.textContent += '*';
@@ -268,6 +280,10 @@ function useKeys(keycode, resetFunction) {
       } else if (number1 && operator && number2) evaluate();
       else if (operator == 'divide') {
         input.textContent = input.textContent;
+      } else if (operator) {
+        operator = 'divide';
+        input.textContent =
+          input.textContent.slice(0, input.textContent.length - 1) + '/';
       } else {
         operator = 'divide';
         input.textContent += '/';
@@ -278,11 +294,43 @@ function useKeys(keycode, resetFunction) {
       resetFunction();
       break;
 
-    // case 'Delete':
-    // if (!number1) {
-    //   resetFunction();
-    // }else if(){
+    case 'Delete':
+      if (!number1) {
+        resetFunction();
+      } else if (number1 && !operator) {
+        number1 = number1.slice(0, number1.length - 1);
+
+        if (minusValue) {
+          input.textContent = '-' + number1;
+        } else {
+          input.textContent = number1;
+          if (!number1) resetFunction();
+        }
+      } else if (number1 && operator && !number2) {
+        if (minusValue) {
+          input.textContent = '-' + number1;
+          operator = '';
+        } else {
+          input.textContent = number1;
+          operator = '';
+        }
+      } else {
+        number2 = number2.slice(0, number2.length - 1);
+        let operatorSymbol =
+          operator === 'minus'
+            ? '-'
+            : operator === 'plus'
+            ? '+'
+            : operator === 'divide'
+            ? '/'
+            : '*';
+        if (minusValue) {
+          input.textContent =
+            '-' + number1 + '' + operatorSymbol + '' + number2;
+        } else {
+          input.textContent = number1 + '' + operatorSymbol + '' + number2;
+        }
+      }
+      break;
   }
-  // break;
-  // }
 }
