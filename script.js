@@ -37,6 +37,7 @@ function reset() {
   operator = '';
   result = '';
   (input.textContent = '0'), (output.textContent = '0');
+  minusValue = 0;
 }
 
 dot.addEventListener('click', function () {
@@ -44,153 +45,282 @@ dot.addEventListener('click', function () {
 });
 
 zero.addEventListener('click', function (e) {
-  if ((number1 === '' || number1 === '0') && minusValue === 0) {
+  if (!number1) {
     number1 = '0';
-    input.textContent = number1;
+    if (minusValue) {
+      input.textContent = minusValue * number1;
+    } else {
+      input.textContent = number1;
+    }
   } else if (number1 && !operator) {
-    number1 += 0;
-    input.textContent += 0;
+    number1 += '0';
+    input.textContent += '0';
   } else {
-    number2 += 0;
-    input.textContent += 0;
+    number2 += '0';
+    input.textContent += '0';
   }
 });
 
 one.addEventListener('click', function () {
-  if ((number1 === '' || number1 === '0') && minusValue === 0) {
+  if (!number1) {
     number1 = '1';
-    input.textContent = number1;
+    if (minusValue) {
+      input.textContent = minusValue * number1;
+    } else {
+      input.textContent = number1;
+    }
   } else if (number1 && !operator) {
-    number1 += 1;
-    input.textContent += 1;
+    number1 += '1';
+    input.textContent += '1';
   } else {
-    number2 += 1;
-    input.textContent += 1;
+    number2 += '1';
+    input.textContent += '1';
   }
 });
 
 two.addEventListener('click', function () {
-  if ((number1 === '' || number1 === '0') && minusValue === 0) {
+  if (!number1) {
     number1 = '2';
-    input.textContent = number1;
+    if (minusValue) {
+      input.textContent = minusValue * number1;
+    } else {
+      input.textContent = number1;
+    }
   } else if (number1 && !operator) {
-    number1 += 2;
-    input.textContent += 2;
+    number1 += '2';
+    input.textContent += '2';
   } else {
-    number2 += 2;
-    input.textContent += 2;
+    number2 += '2';
+    input.textContent += '2';
   }
 });
 
 three.addEventListener('click', function () {
-  if ((number1 === '' || number1 === '0') && minusValue === 0) {
+  if (!number1) {
     number1 = '3';
-    input.textContent = number1;
+    if (minusValue) {
+      input.textContent = minusValue * number1;
+    } else {
+      input.textContent = number1;
+    }
   } else if (number1 && !operator) {
-    number1 += 3;
-    input.textContent += 3;
+    number1 += '3';
+    input.textContent += '3';
   } else {
-    number2 += 3;
-    input.textContent += 3;
+    number2 += '3';
+    input.textContent += '3';
   }
 });
 
 four.addEventListener('click', function () {
-  if ((number1 === '' || number1 === '0') && minusValue === 0) {
+  if (!number1) {
     number1 = '4';
-    input.textContent = number1;
+    if (minusValue) {
+      input.textContent = minusValue * number1;
+    } else {
+      input.textContent = number1;
+    }
   } else if (number1 && !operator) {
-    number1 += 4;
-    input.textContent += 4;
+    number1 += '4';
+    input.textContent += '4';
   } else {
-    number2 += 4;
-    input.textContent += 4;
+    number2 += '4';
+    input.textContent += '4';
   }
 });
 
 five.addEventListener('click', function () {
-  if ((number1 === '' || number1 === '0') && minusValue === 0) {
+  if (!number1) {
     number1 = '5';
-    input.textContent = number1;
+    if (minusValue) {
+      input.textContent = minusValue * number1;
+    } else {
+      input.textContent = number1;
+    }
   } else if (number1 && !operator) {
-    number1 += 5;
-    input.textContent += 5;
+    number1 += '5';
+    input.textContent += '5';
   } else {
-    number2 += 5;
-    input.textContent += 5;
+    number2 += '5';
+    input.textContent += '5';
   }
 });
 
 six.addEventListener('click', function () {
-  if ((number1 === '' || number1 === '0') && minusValue === 0) {
+  if (!number1) {
     number1 = '6';
-    input.textContent = number1;
+    if (minusValue) {
+      input.textContent = minusValue * number1;
+    } else {
+      input.textContent = number1;
+    }
   } else if (number1 && !operator) {
-    number1 += 6;
-    input.textContent += 6;
+    number1 += '6';
+    input.textContent += '6';
   } else {
-    number2 += 6;
-    input.textContent += 6;
+    number2 += '6';
+    input.textContent += '6';
   }
 });
 
 seven.addEventListener('click', function () {
-  if ((number1 === '' || number1 === '0') && minusValue === 0) {
+  if (!number1) {
     number1 = '7';
-    input.textContent = number1;
+    if (minusValue) {
+      input.textContent = minusValue * number1;
+    } else {
+      input.textContent = number1;
+    }
   } else if (number1 && !operator) {
-    number1 += 7;
-    input.textContent += 7;
+    number1 += '7';
+    input.textContent += '7';
   } else {
-    number2 += 7;
-    input.textContent += 7;
+    number2 += '7';
+    input.textContent += '7';
   }
 });
 
 eight.addEventListener('click', function () {
-  if ((number1 === '' || number1 === '0') && minusValue === 0) {
+  if (!number1) {
     number1 = '8';
-    input.textContent = number1;
+    if (minusValue) {
+      input.textContent = minusValue * number1;
+    } else {
+      input.textContent = number1;
+    }
   } else if (number1 && !operator) {
-    number1 += 8;
-    input.textContent += 8;
+    console.log('hello');
+    number1 += '8';
+    input.textContent += '8';
   } else {
-    number2 += 8;
-    input.textContent += 8;
+    number2 += '8';
+    input.textContent += '8';
   }
 });
 
 nine.addEventListener('click', function () {
-  if ((number1 === '' || number1 === '0') && minusValue === 0) {
+  if (!number1) {
     number1 = '9';
-    input.textContent = number1;
+    if (minusValue) {
+      input.textContent = minusValue * number1;
+    } else {
+      input.textContent = number1;
+    }
   } else if (number1 && !operator) {
-    number1 += 9;
-    input.textContent += 9;
+    number1 += '9';
+    input.textContent += '9';
   } else {
-    number2 += 9;
-    input.textContent += 9;
+    number2 += '9';
+    input.textContent += '9';
   }
 });
 
-multiply.addEventListener('click', function () {});
+multiply.addEventListener('click', function () {
+  if (result) {
+    number1 = result;
+    result = '';
+    number2 = '';
+    input.textContent = number1 + '*';
+    operator = 'multiply';
+    output.textContent = '0';
+  } else if (number1 && operator && number2) {
+    result = operation(number1, number2, operator, minusValue);
+    output.textContent = result;
+    operator = '';
+    minusValue = 0;
+  } else if (!number1) {
+    resetFunction();
+  } else if (operator == 'multiply') {
+    input.textContent = input.textContent;
+  } else {
+    operator = 'multiply';
+    input.textContent += '*';
+  }
+});
 
-divide.addEventListener('click', function () {});
+divide.addEventListener('click', function () {
+  if (result) {
+    number1 = result;
+    result = '';
+    number2 = '';
+    input.textContent = number1 + '/';
+    operator = 'divide';
+    output.textContent = '0';
+  } else if (number1 && operator && number2) {
+    result = operation(number1, number2, operator, minusValue);
+    output.textContent = result;
+    operator = '';
+    minusValue = 0;
+  } else if (!number1) {
+    resetFunction();
+  } else if (number1 && operator && number2) evaluate();
+  else if (operator == 'divide') {
+    input.textContent = input.textContent;
+  } else {
+    operator = 'divide';
+    input.textContent += '/';
+  }
+});
 
-plus.addEventListener('click', function () {});
+plus.addEventListener('click', function () {
+  if (result) {
+    number1 = result;
+    result = '';
+    number2 = '';
+    input.textContent = number1 + '+';
+    operator = 'plus';
+    output.textContent = '0';
+  } else if (number1 && operator && number2) {
+    result = operation(number1, number2, operator, minusValue);
+    output.textContent = result;
+    operator = '';
+    minusValue = 0;
+  } else if (!number1) {
+    resetFunction();
+  } else if (operator == 'plus') {
+    input.textContent = input.textContent;
+  } else {
+    operator = 'plus';
+    input.textContent += '+';
+  }
+});
 
-minus.addEventListener('click', function () {});
+minus.addEventListener('click', function () {
+  if (result) {
+    number1 = result;
+    result = '';
+    number2 = '';
+    input.textContent = number1 + '-';
+    operator = 'minus';
+    output.textContent = '0';
+  } else if (number1 && operator && number2) {
+    result = operation(number1, number2, operator, minusValue);
+    output.textContent = result;
+    operator = '';
+    minusValue = 0;
+  } else if (!number1 && !minusValue) {
+    minusValue = -1;
+    input.textContent = '-';
+  } else if (minusValue && !number1) {
+    operator = '';
+  } else if (operator == 'minus') {
+    input.textContent = input.textContent;
+  } else {
+    operator = 'minus';
+    input.textContent += '-';
+  }
+});
 
 equal.addEventListener('click', function () {
-  // console.log(input.textContent);
-  evaluate();
+  if (number1 && number2 && operator) {
+    output.textContent = operation(number1, number2, operator, minusValue);
+    minusValue = 0;
+  }
 });
 
 cls.addEventListener('click', reset);
 
 document.addEventListener('keyup', function (e) {
-  // if (!isFinite(number1) || isNaN(number1)) reset();
-
   useKeys(e.key, reset);
 
   console.log(

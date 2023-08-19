@@ -172,7 +172,10 @@ function useKeys(keycode, resetFunction) {
       break;
 
     case 'Enter':
-      output.textContent = operation(number1, number2, operator, minusValue);
+      if (number1 && number2 && operator) {
+        output.textContent = operation(number1, number2, operator, minusValue);
+        minusValue = 0;
+      }
       break;
 
     case '-':
@@ -274,5 +277,12 @@ function useKeys(keycode, resetFunction) {
     case 'c' || 'C':
       resetFunction();
       break;
+
+    // case 'Delete':
+    // if (!number1) {
+    //   resetFunction();
+    // }else if(){
   }
+  // break;
+  // }
 }
