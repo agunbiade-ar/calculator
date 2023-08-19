@@ -318,6 +318,44 @@ equal.addEventListener('click', function () {
   }
 });
 
+del.addEventListener('click', function () {
+  if (!number1) {
+    resetFunction();
+  } else if (number1 && !operator) {
+    number1 = number1.slice(0, number1.length - 1);
+
+    if (minusValue) {
+      input.textContent = '-' + number1;
+    } else {
+      input.textContent = number1;
+      if (!number1) resetFunction();
+    }
+  } else if (number1 && operator && !number2) {
+    if (minusValue) {
+      input.textContent = '-' + number1;
+      operator = '';
+    } else {
+      input.textContent = number1;
+      operator = '';
+    }
+  } else {
+    number2 = number2.slice(0, number2.length - 1);
+    let operatorSymbol =
+      operator === 'minus'
+        ? '-'
+        : operator === 'plus'
+        ? '+'
+        : operator === 'divide'
+        ? '/'
+        : '*';
+    if (minusValue) {
+      input.textContent = '-' + number1 + '' + operatorSymbol + '' + number2;
+    } else {
+      input.textContent = number1 + '' + operatorSymbol + '' + number2;
+    }
+  }
+});
+
 cls.addEventListener('click', reset);
 
 document.addEventListener('keyup', function (e) {
