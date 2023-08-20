@@ -40,6 +40,16 @@ function reset() {
   minusValue = 0;
 }
 
+function getOperator(operator_) {
+  return operator_ === 'minus'
+    ? '-'
+    : operator_ === 'plus'
+    ? '+'
+    : operator_ === 'divide'
+    ? '/'
+    : '*';
+}
+
 dot.addEventListener('click', function () {
   console.log('.');
 });
@@ -219,19 +229,25 @@ multiply.addEventListener('click', function () {
   if (result) {
     number1 = result;
     result = '';
-    number2 = '';
     input.textContent = number1 + '*';
     operator = 'multiply';
     output.textContent = '0';
   } else if (number1 && operator && number2) {
     result = operation(number1, number2, operator, minusValue);
+    number1 = result;
+    number2 = '';
     output.textContent = result;
-    operator = '';
-    minusValue = 0;
+    operator = 'multiply';
+    input.textContent = number1 + '' + getOperator(operator);
+    result = minusValue = 0;
   } else if (!number1) {
     resetFunction();
   } else if (operator == 'multiply') {
     input.textContent = input.textContent;
+  } else if (operator) {
+    operator = 'multiply';
+    input.textContent =
+      input.textContent.slice(0, input.textContent.length - 1) + '*';
   } else {
     operator = 'multiply';
     input.textContent += '*';
@@ -239,23 +255,31 @@ multiply.addEventListener('click', function () {
 });
 
 divide.addEventListener('click', function () {
-  if (result) {
-    number1 = result;
-    result = '';
-    number2 = '';
+  if (result && operator) {
     input.textContent = number1 + '/';
     operator = 'divide';
     output.textContent = '0';
   } else if (number1 && operator && number2) {
     result = operation(number1, number2, operator, minusValue);
+    number1 = result;
+    number2 = '';
     output.textContent = result;
-    operator = '';
-    minusValue = 0;
+    operator = 'divide';
+    input.textContent = number1 + '' + getOperator(operator);
+    result = minusValue = 0;
   } else if (!number1) {
     resetFunction();
-  } else if (number1 && operator && number2) evaluate();
-  else if (operator == 'divide') {
+  } else if (number1 && operator && number2) {
+    result = operation(number1, number2, operator, minusValue);
+    output.textContent = result;
+    operator = 'divide';
+    input.textContent = result + '' + getOperator(operator);
+  } else if (operator == 'divide') {
     input.textContent = input.textContent;
+  } else if (operator) {
+    operator = 'divide';
+    input.textContent =
+      input.textContent.slice(0, input.textContent.length - 1) + '/';
   } else {
     operator = 'divide';
     input.textContent += '/';
@@ -266,19 +290,25 @@ plus.addEventListener('click', function () {
   if (result) {
     number1 = result;
     result = '';
-    number2 = '';
     input.textContent = number1 + '+';
     operator = 'plus';
     output.textContent = '0';
   } else if (number1 && operator && number2) {
     result = operation(number1, number2, operator, minusValue);
+    number1 = result;
+    number2 = '';
     output.textContent = result;
-    operator = '';
-    minusValue = 0;
+    operator = 'plus';
+    input.textContent = number1 + '' + getOperator(operator);
+    result = minusValue = 0;
   } else if (!number1) {
     resetFunction();
   } else if (operator == 'plus') {
     input.textContent = input.textContent;
+  } else if (operator) {
+    operator = 'plus';
+    input.textContent =
+      input.textContent.slice(0, input.textContent.length - 1) + '+';
   } else {
     operator = 'plus';
     input.textContent += '+';
@@ -287,7 +317,6 @@ plus.addEventListener('click', function () {
 
 minus.addEventListener('click', function () {
   if (result) {
-    number1 = result;
     result = '';
     number2 = '';
     input.textContent = number1 + '-';
@@ -295,9 +324,12 @@ minus.addEventListener('click', function () {
     output.textContent = '0';
   } else if (number1 && operator && number2) {
     result = operation(number1, number2, operator, minusValue);
+    number1 = result;
+    number2 = '';
     output.textContent = result;
-    operator = '';
-    minusValue = 0;
+    operator = 'minus';
+    input.textContent = number1 + '' + getOperator(operator);
+    result = minusValue = 0;
   } else if (!number1 && !minusValue) {
     minusValue = -1;
     input.textContent = '-';
@@ -305,6 +337,10 @@ minus.addEventListener('click', function () {
     operator = '';
   } else if (operator == 'minus') {
     input.textContent = input.textContent;
+  } else if (operator) {
+    operator = 'minus';
+    input.textContent =
+      input.textContent.slice(0, input.textContent.length - 1) + '-';
   } else {
     operator = 'minus';
     input.textContent += '-';
@@ -340,14 +376,9 @@ del.addEventListener('click', function () {
     }
   } else {
     number2 = number2.slice(0, number2.length - 1);
-    let operatorSymbol =
-      operator === 'minus'
-        ? '-'
-        : operator === 'plus'
-        ? '+'
-        : operator === 'divide'
-        ? '/'
-        : '*';
+
+    let operatorSymbol = getOperator(operator);
+
     if (minusValue) {
       input.textContent = '-' + number1 + '' + operatorSymbol + '' + number2;
     } else {
@@ -362,6 +393,6 @@ document.addEventListener('keyup', function (e) {
   useKeys(e.key, reset);
 
   console.log(
-    `number 1 is ${number1}, number 2 is ${number2}, operator is ${operator}`
+    `number 1 is ${number1}, number 2 is ${number2}, operator is ${operator}, result is ${result}`
   );
 });

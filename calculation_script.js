@@ -1,6 +1,8 @@
 function operation(num1, num2, operator, minusValue) {
   let value;
-  if (minusValue === -1) num1 = parseFloat(num1) * minusValue;
+  if (num1 < 0) {
+    num1 = parseFloat(num1);
+  } else if (minusValue === -1) num1 = parseFloat(num1) * minusValue;
   else {
     num1 = parseFloat(num1);
   }

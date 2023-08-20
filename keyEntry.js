@@ -166,6 +166,7 @@ function useKeys(keycode, resetFunction) {
         number1 += '9';
         input.textContent += '9';
       } else {
+        console.log('yes');
         number2 += '9';
         input.textContent += '9';
       }
@@ -180,7 +181,6 @@ function useKeys(keycode, resetFunction) {
 
     case '-':
       if (result) {
-        number1 = result;
         result = '';
         number2 = '';
         input.textContent = number1 + '-';
@@ -188,9 +188,12 @@ function useKeys(keycode, resetFunction) {
         output.textContent = '0';
       } else if (number1 && operator && number2) {
         result = operation(number1, number2, operator, minusValue);
+        number1 = result;
+        number2 = '';
         output.textContent = result;
-        operator = '';
-        minusValue = 0;
+        operator = 'minus';
+        input.textContent = number1 + '' + getOperator(operator);
+        result = minusValue = 0;
       } else if (!number1 && !minusValue) {
         minusValue = -1;
         input.textContent = '-';
@@ -212,15 +215,17 @@ function useKeys(keycode, resetFunction) {
       if (result) {
         number1 = result;
         result = '';
-        number2 = '';
         input.textContent = number1 + '+';
         operator = 'plus';
         output.textContent = '0';
       } else if (number1 && operator && number2) {
         result = operation(number1, number2, operator, minusValue);
+        number1 = result;
+        number2 = '';
         output.textContent = result;
-        operator = '';
-        minusValue = 0;
+        operator = 'plus';
+        input.textContent = number1 + '' + getOperator(operator);
+        result = minusValue = 0;
       } else if (!number1) {
         resetFunction();
       } else if (operator == 'plus') {
@@ -239,15 +244,17 @@ function useKeys(keycode, resetFunction) {
       if (result) {
         number1 = result;
         result = '';
-        number2 = '';
         input.textContent = number1 + '*';
         operator = 'multiply';
         output.textContent = '0';
       } else if (number1 && operator && number2) {
         result = operation(number1, number2, operator, minusValue);
+        number1 = result;
+        number2 = '';
         output.textContent = result;
-        operator = '';
-        minusValue = 0;
+        operator = 'multiply';
+        input.textContent = number1 + '' + getOperator(operator);
+        result = minusValue = 0;
       } else if (!number1) {
         resetFunction();
       } else if (operator == 'multiply') {
@@ -263,22 +270,26 @@ function useKeys(keycode, resetFunction) {
       break;
 
     case '/':
-      if (result) {
-        number1 = result;
-        result = '';
-        number2 = '';
+      if (result && operator) {
         input.textContent = number1 + '/';
         operator = 'divide';
         output.textContent = '0';
       } else if (number1 && operator && number2) {
         result = operation(number1, number2, operator, minusValue);
+        number1 = result;
+        number2 = '';
         output.textContent = result;
-        operator = '';
-        minusValue = 0;
+        operator = 'divide';
+        input.textContent = number1 + '' + getOperator(operator);
+        result = minusValue = 0;
       } else if (!number1) {
         resetFunction();
-      } else if (number1 && operator && number2) evaluate();
-      else if (operator == 'divide') {
+      } else if (number1 && operator && number2) {
+        result = operation(number1, number2, operator, minusValue);
+        output.textContent = result;
+        operator = 'divide';
+        input.textContent = result + '' + getOperator(operator);
+      } else if (operator == 'divide') {
         input.textContent = input.textContent;
       } else if (operator) {
         operator = 'divide';
@@ -316,14 +327,9 @@ function useKeys(keycode, resetFunction) {
         }
       } else {
         number2 = number2.slice(0, number2.length - 1);
-        let operatorSymbol =
-          operator === 'minus'
-            ? '-'
-            : operator === 'plus'
-            ? '+'
-            : operator === 'divide'
-            ? '/'
-            : '*';
+
+        let operatorSymbol = getOperator(operator);
+
         if (minusValue) {
           input.textContent =
             '-' + number1 + '' + operatorSymbol + '' + number2;
@@ -331,6 +337,10 @@ function useKeys(keycode, resetFunction) {
           input.textContent = number1 + '' + operatorSymbol + '' + number2;
         }
       }
+      break;
+
+    case '.':
+      console.log('hello');
       break;
   }
 }
