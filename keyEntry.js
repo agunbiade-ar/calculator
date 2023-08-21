@@ -9,11 +9,20 @@ function useKeys(keycode, resetFunction) {
           input.textContent = number1;
         }
       } else if (number1 && !operator) {
-        number1 += '0';
-        input.textContent += '0';
+        if (number1 == '0') {
+          number1 = number1;
+        } else {
+          number1 += '0';
+          input.textContent += '0';
+        }
       } else {
-        number2 += '0';
-        input.textContent += '0';
+        if (number2 == '0') {
+          number2 = number2;
+          input.textContent = input.textContent;
+        } else {
+          number2 += '0';
+          input.textContent += '0';
+        }
       }
       break;
 
@@ -26,11 +35,22 @@ function useKeys(keycode, resetFunction) {
           input.textContent = number1;
         }
       } else if (number1 && !operator) {
-        number1 += '1';
-        input.textContent += '1';
+        if (number1 == '0') {
+          number1 = '1';
+          input.textContent = '1';
+        } else {
+          number1 += '1';
+          input.textContent += '1';
+        }
       } else {
-        number2 += '1';
-        input.textContent += '1';
+        if (number2 == '0') {
+          number2 = '1';
+          input.textContent =
+            input.textContent.slice(0, input.textContent.length) + number2;
+        } else {
+          number2 += '1';
+          input.textContent += '1';
+        }
       }
       break;
 
@@ -43,11 +63,22 @@ function useKeys(keycode, resetFunction) {
           input.textContent = number1;
         }
       } else if (number1 && !operator) {
-        number1 += '2';
-        input.textContent += '2';
+        if (number1 == '0') {
+          number1 = '2';
+          input.textContent = '2';
+        } else {
+          number1 += '2';
+          input.textContent += '2';
+        }
       } else {
-        number2 += '2';
-        input.textContent += '2';
+        if (number2 == '0') {
+          number2 = '2';
+          input.textContent =
+            input.textContent.slice(0, input.textContent.length) + number2;
+        } else {
+          number2 += '2';
+          input.textContent += '2';
+        }
       }
       break;
 
@@ -60,11 +91,22 @@ function useKeys(keycode, resetFunction) {
           input.textContent = number1;
         }
       } else if (number1 && !operator) {
-        number1 += '3';
-        input.textContent += '3';
+        if (number1 == '0') {
+          number1 = '3';
+          input.textContent = '3';
+        } else {
+          number1 += '3';
+          input.textContent += '3';
+        }
       } else {
-        number2 += '3';
-        input.textContent += '3';
+        if (number2 == '0') {
+          number2 = '3';
+          input.textContent =
+            input.textContent.slice(0, input.textContent.length) + number2;
+        } else {
+          number2 += '3';
+          input.textContent += '3';
+        }
       }
       break;
 
@@ -77,11 +119,22 @@ function useKeys(keycode, resetFunction) {
           input.textContent = number1;
         }
       } else if (number1 && !operator) {
-        number1 += '4';
-        input.textContent += '4';
+        if (number1 == '0') {
+          number1 = '4';
+          input.textContent = '4';
+        } else {
+          number1 += '4';
+          input.textContent += '4';
+        }
       } else {
-        number2 += '4';
-        input.textContent += '4';
+        if (number2 == '0') {
+          number2 = '4';
+          input.textContent =
+            input.textContent.slice(0, input.textContent.length) + number2;
+        } else {
+          number2 += '4';
+          input.textContent += '4';
+        }
       }
       break;
 
@@ -94,11 +147,22 @@ function useKeys(keycode, resetFunction) {
           input.textContent = number1;
         }
       } else if (number1 && !operator) {
-        number1 += '5';
-        input.textContent += '5';
+        if (number1 == '0') {
+          number1 = '5';
+          input.textContent = '5';
+        } else {
+          number1 += '5';
+          input.textContent += '5';
+        }
       } else {
-        number2 += '5';
-        input.textContent += '5';
+        if (number2 == '0') {
+          number2 = '5';
+          input.textContent =
+            input.textContent.slice(0, input.textContent.length) + number2;
+        } else {
+          number2 += '5';
+          input.textContent += '5';
+        }
       }
       break;
 
@@ -111,11 +175,22 @@ function useKeys(keycode, resetFunction) {
           input.textContent = number1;
         }
       } else if (number1 && !operator) {
-        number1 += '6';
-        input.textContent += '6';
+        if (number1 == '0') {
+          number1 = '6';
+          input.textContent = '6';
+        } else {
+          number1 += '6';
+          input.textContent += '6';
+        }
       } else {
-        number2 += '6';
-        input.textContent += '6';
+        if (number2 == '0') {
+          number2 = '6';
+          input.textContent =
+            input.textContent.slice(0, input.textContent.length) + number2;
+        } else {
+          number2 += '6';
+          input.textContent += '6';
+        }
       }
       break;
 
@@ -128,11 +203,22 @@ function useKeys(keycode, resetFunction) {
           input.textContent = number1;
         }
       } else if (number1 && !operator) {
-        number1 += '7';
-        input.textContent += '7';
+        if (number1 == '0') {
+          number1 = '7';
+          input.textContent = '7';
+        } else {
+          number1 += '7';
+          input.textContent += '7';
+        }
       } else {
-        number2 += '7';
-        input.textContent += '7';
+        if (number2 == '0') {
+          number2 = '7';
+          input.textContent =
+            input.textContent.slice(0, input.textContent.length) + number2;
+        } else {
+          number2 += '7';
+          input.textContent += '7';
+        }
       }
       break;
 
@@ -145,12 +231,22 @@ function useKeys(keycode, resetFunction) {
           input.textContent = number1;
         }
       } else if (number1 && !operator) {
-        console.log('hello');
-        number1 += '8';
-        input.textContent += '8';
+        if (number1 == '0') {
+          number1 = '8';
+          input.textContent = '8';
+        } else {
+          number1 += '8';
+          input.textContent += '8';
+        }
       } else {
-        number2 += '8';
-        input.textContent += '8';
+        if (number2 == '0') {
+          number2 = '8';
+          input.textContent =
+            input.textContent.slice(0, input.textContent.length) + number2;
+        } else {
+          number2 += '8';
+          input.textContent += '8';
+        }
       }
       break;
 
@@ -163,32 +259,50 @@ function useKeys(keycode, resetFunction) {
           input.textContent = number1;
         }
       } else if (number1 && !operator) {
-        number1 += '9';
-        input.textContent += '9';
+        if (number1 == '0') {
+          number1 = '9';
+          input.textContent = '9';
+        } else {
+          number1 += '9';
+          input.textContent += '9';
+        }
       } else {
-        console.log('yes');
-        number2 += '9';
-        input.textContent += '9';
+        if (number2 == '0') {
+          number2 = '9';
+          input.textContent =
+            input.textContent.slice(0, input.textContent.length) + number2;
+        } else {
+          number2 += '9';
+          input.textContent += '9';
+        }
       }
       break;
 
     case 'Enter':
       if (number1 && number2 && operator) {
-        output.textContent = operation(number1, number2, operator, minusValue);
+        output.textContent = result = operation(
+          number1,
+          number2,
+          operator,
+          minusValue
+        );
         minusValue = 0;
+        operator = '';
+        input.textContent = number1 = result;
+        number2 = '';
       }
       break;
 
     case '-':
       if (result) {
         result = '';
-        number2 = '';
-        input.textContent = number1 + '-';
         operator = 'minus';
+        input.textContent = number1 + '' + getOperator(operator);
         output.textContent = '0';
       } else if (number1 && operator && number2) {
         result = operation(number1, number2, operator, minusValue);
         number1 = result;
+        console.log(number1, result);
         number2 = '';
         output.textContent = result;
         operator = 'minus';
@@ -213,16 +327,15 @@ function useKeys(keycode, resetFunction) {
 
     case '+':
       if (result) {
-        number1 = result;
-        result = '';
+        result = 0;
         input.textContent = number1 + '+';
         operator = 'plus';
         output.textContent = '0';
       } else if (number1 && operator && number2) {
         result = operation(number1, number2, operator, minusValue);
-        number1 = result;
         number2 = '';
         output.textContent = result;
+        number1 = result;
         operator = 'plus';
         input.textContent = number1 + '' + getOperator(operator);
         result = minusValue = 0;
@@ -242,7 +355,6 @@ function useKeys(keycode, resetFunction) {
 
     case '*':
       if (result) {
-        number1 = result;
         result = '';
         input.textContent = number1 + '*';
         operator = 'multiply';
@@ -327,7 +439,6 @@ function useKeys(keycode, resetFunction) {
         }
       } else {
         number2 = number2.slice(0, number2.length - 1);
-
         let operatorSymbol = getOperator(operator);
 
         if (minusValue) {
@@ -340,7 +451,27 @@ function useKeys(keycode, resetFunction) {
       break;
 
     case '.':
-      console.log('hello');
+      if (number1 == '') {
+        number1 = 0 + '.';
+        input.textContent = number1;
+      } else if (number1.indexOf('.') === -1) {
+        number1 += '.';
+        input.textContent += '.';
+      } else if (number1.indexOf('.') !== -1) {
+        number1 = number1;
+      }
+      if (operator) {
+        if (number2 == '') {
+          number2 = 0 + '.';
+          input.textContent =
+            input.textContent.slice(0, input.textContent.length) + number2;
+        } else if (number2.indexOf('.') === -1) {
+          number2 += '.';
+          input.textContent += '.';
+        } else {
+          number2 = number2;
+        }
+      }
       break;
   }
 }
