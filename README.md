@@ -1,2 +1,2 @@
 # calculator
-calculator from theodinproject
+calculator from theodinproject: created with html, css and javascript
