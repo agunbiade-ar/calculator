@@ -364,7 +364,7 @@ multiply.addEventListener('click', function () {
     input.textContent = number1 + '' + getOperator(operator);
     result = minusValue = 0;
   } else if (!number1) {
-    resetFunction();
+    reset();
   } else if (operator == 'multiply') {
     input.textContent = input.textContent;
   } else if (operator) {
@@ -391,7 +391,7 @@ divide.addEventListener('click', function () {
     input.textContent = number1 + '' + getOperator(operator);
     result = minusValue = 0;
   } else if (!number1) {
-    resetFunction();
+    reset();
   } else if (number1 && operator && number2) {
     result = operation(number1, number2, operator, minusValue);
     output.textContent = result;
@@ -424,7 +424,7 @@ plus.addEventListener('click', function () {
     input.textContent = number1 + '' + getOperator(operator);
     result = minusValue = 0;
   } else if (!number1) {
-    resetFunction();
+    reset();
   } else if (operator == 'plus') {
     input.textContent = input.textContent;
   } else if (operator) {
